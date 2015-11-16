@@ -58,14 +58,13 @@ end
 function randomSequence(max)
     sequence = {}
     for i=1,max do
-        --print('random: ' .. math.random(i))
-        sequence = table.insert(sequence[i], math.random(i))
+        table.insert(sequence, love.math.random(i))
     end
     return sequence
 end
 
 function playSequence()
-    randomSequence()
+    randomSequence(4)
     -- set each number to corresponding square
     -- change background and play sound for each square
 end
