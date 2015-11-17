@@ -85,6 +85,7 @@ function playSequence()
             elseif value == 4 then
                 yellow.color = love.graphics.setColor(250, 250, 0)
                 yellowSound:play()
+            end
     end 
 end
 
