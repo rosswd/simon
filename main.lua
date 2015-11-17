@@ -86,7 +86,7 @@ function playSequence()
                 yellow.color = love.graphics.setColor(250, 250, 0)
                 yellowSound:play()
             end
-    end 
+    end
 end
 
 function checkSequence()
