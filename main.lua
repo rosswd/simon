@@ -19,6 +19,10 @@ function love.load()
     greenSound = love.audio.newSource('sounds/02.wav', 'static')
     blueSound = love.audio.newSource('sounds/03.wav', 'static')
     yellowSound = love.audio.newSource('sounds/04.wav', 'static')
+    red = {}
+    green = {}
+    blue = {}
+    yellow = {}
 end
 
 -- Update
@@ -42,17 +46,17 @@ end
 
 -- Render
 function love.draw()
-    love.graphics.setColor(204, 0, 0)
-    love.graphics.rectangle("fill", x1, y1, w, h)
+    red.color = love.graphics.setColor(204, 0, 0)
+    red.shape = love.graphics.rectangle("fill", x1, y1, w, h)
 
-    love.graphics.setColor(0, 204, 0)
-    love.graphics.rectangle("fill", x2, y1, w, h)
+    green.color = love.graphics.setColor(0, 204, 0)
+    green.shape = love.graphics.rectangle("fill", x2, y1, w, h)
 
-    love.graphics.setColor(0, 0, 204)
-    love.graphics.rectangle("fill", x1, y2, w, h)
+    blue.color = love.graphics.setColor(0, 0, 204)
+    blue.shape = love.graphics.rectangle("fill", x1, y2, w, h)
 
-    love.graphics.setColor(204, 204, 0)
-    love.graphics.rectangle("fill", x2, y2, w, h)
+    yellow.color = love.graphics.setColor(204, 204, 0)
+    yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
 end
 
 function randomSequence(max)
@@ -67,6 +71,21 @@ function playSequence()
     randomSequence(4)
     -- set each number to corresponding square
     -- change background and play sound for each square
+    for key, value in ipairs(sequence)
+        do
+            if value == 1 then
+                red.color = love.graphics.setColor(250, 100, 100)
+                redSound:play()
+            elseif value == 2 then
+                green.color = love.graphics.setColor(100, 250, 100)
+                greenSound:play()
+            elseif value == 3 then
+                blue.color = love.graphics.setColor(100, 100, 250)
+                blueSound:play()
+            elseif value == 4 then
+                yellow.color = love.graphics.setColor(250, 250, 0)
+                yellowSound:play()
+    end 
 end
 
 function checkSequence()
