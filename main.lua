@@ -31,12 +31,6 @@ function love.update(dt)
         love.event.push('quit')
     end
 
-    if love.keyboard.isDown('up') then
-        love.graphics.setBackgroundColor(255, 255, 255)
-    else
-        love.graphics.setBackgroundColor(0, 0, 0)
-    end
-
     if love.keyboard.isDown('r') then
         redSound:play()
     elseif love.keyboard.isDown('g') then
