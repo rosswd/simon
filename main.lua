@@ -30,16 +30,6 @@ function love.update(dt)
     if love.keyboard.isDown('escape') then
         love.event.push('quit')
     end
-
-    if love.keyboard.isDown('r') then
-        redSound:play()
-    elseif love.keyboard.isDown('g') then
-        greenSound:play()
-    elseif love.keyboard.isDown('b') then
-        blueSound:play()
-    elseif love.keyboard.isDown('y') then
-        yellowSound:play()
-    end
 end
 
 -- Render
@@ -55,6 +45,25 @@ function love.draw()
 
     yellow.color = love.graphics.setColor(204, 204, 0)
     yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
+
+    -- what to do when r, g, b and y keys are pressed
+    if love.keyboard.isDown('r') then
+        redSound:play()
+        red.color = love.graphics.setColor(255, 0, 0)
+        red.shape = love.graphics.rectangle("fill", x1, y1, w, h)
+    elseif love.keyboard.isDown('g') then
+        greenSound:play()
+        green.color = love.graphics.setColor(0, 255, 0)
+        green.shape = love.graphics.rectangle("fill", x2, y1, w, h)
+    elseif love.keyboard.isDown('b') then
+        blueSound:play()
+        blue.color = love.graphics.setColor(0, 0, 255)
+        blue.shape = love.graphics.rectangle("fill", x1, y2, w, h)
+    elseif love.keyboard.isDown('y') then
+        yellowSound:play()
+        yellow.color = love.graphics.setColor(255, 255, 0)
+        yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
+    end
 end
 
 function randomSequence(max)
