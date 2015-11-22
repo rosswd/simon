@@ -29,9 +29,14 @@ end
 
 -- Update
 function love.update(dt)
-    -- Exit game
+    -- Exit game using 'esc'
     if love.keyboard.isDown('escape') then
         love.event.push('quit')
+    end
+
+    -- restart game using 'q'
+    if love.keyboard.isDown('q') then
+        resetGame()
     end
 end
 
@@ -66,11 +71,6 @@ function love.draw()
         yellow.sound:play()
         yellow.color = love.graphics.setColor(255, 255, 0)
         yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
-    end
-
-    -- restart game using 'q'
-    if love.keyboard.isDown('q') then
-        resetGame()
     end
 end
 
