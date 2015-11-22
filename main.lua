@@ -11,7 +11,6 @@ function love.load()
     w = 160
     h = 160
     love.graphics.setBackgroundColor(0, 0, 0)
-    love.window.setTitle('Simon the Game')
 
     intro = 'Simon will play a random sequence and then ask you to repeat it.' .. 
     ' As the game progresses, the sequence will get more difficult. Good Luck!'
