@@ -4,26 +4,24 @@ debug=true
 
 -- Setup
 function love.load()
-    x1 = 200
-    x2 = 400
-    y1 = 150
-    y2 = 350
-    w = 160
-    h = 160
-    love.graphics.setBackgroundColor(0, 0, 0)
+    -- dimensions to draw rectangles
+    x1, x2 = 200, 400
+    y1, y2 = 150, 350
+    w, h = 160, 160
 
-    intro = 'Simon will play a random sequence and then ask you to repeat it.' .. 
-    ' As the game progresses, the sequence will get more difficult. Good Luck!'
-    love.window.showMessageBox('Welcome', intro)
+    -- tables to hold rectangles
+    red, green, blue, yellow = {}, {}, {}, {}
 
+    -- sounds for each rectangle
     redSound = love.audio.newSource('sounds/01.wav', 'static')
     greenSound = love.audio.newSource('sounds/02.wav', 'static')
     blueSound = love.audio.newSource('sounds/03.wav', 'static')
     yellowSound = love.audio.newSource('sounds/04.wav', 'static')
-    red = {}
-    green = {}
-    blue = {}
-    yellow = {}
+
+    -- instructions
+    intro = 'Simon will play a random sequence and then ask you to repeat it.' .. 
+    ' As the game progresses, the sequence will get more difficult. Good Luck!'
+    love.window.showMessageBox('Welcome to Simon', intro)
 end
 
 -- Update
