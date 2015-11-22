@@ -1,5 +1,7 @@
 -- Simon Game
 
+debug=true
+
 -- Setup
 function love.load()
     x1 = 200
@@ -27,6 +29,11 @@ end
 
 -- Update
 function love.update(dt)
+    -- Exit game
+    if love.keyboard.isDown('escape') then
+        love.event.push('quit')
+    end
+
     if love.keyboard.isDown('up') then
         love.graphics.setBackgroundColor(255, 255, 255)
     else
