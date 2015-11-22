@@ -1,4 +1,4 @@
--- Simon Game
+-- Simon the game
 
 debug=true
 
@@ -117,6 +117,9 @@ function gameOver()
 end
 
 function resetGame()
+end
+
+function pauseGame()
 end
 
 function startGame()
