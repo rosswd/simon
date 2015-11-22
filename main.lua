@@ -4,15 +4,15 @@ debug=true
 
 -- Setup
 function love.load()
-    -- dimensions to draw rectangles
+    -- dimensions to draw squares
     x1, x2 = 200, 400
     y1, y2 = 150, 350
     w, h = 160, 160
 
-    -- tables to hold rectangles
+    -- tables to hold squares
     red, green, blue, yellow = {}, {}, {}, {}
 
-    -- sounds for each rectangle
+    -- sounds for each square
     redSound = love.audio.newSource('sounds/01.wav', 'static')
     greenSound = love.audio.newSource('sounds/02.wav', 'static')
     blueSound = love.audio.newSource('sounds/03.wav', 'static')
