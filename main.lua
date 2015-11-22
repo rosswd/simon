@@ -64,6 +64,11 @@ function love.draw()
         yellow.color = love.graphics.setColor(255, 255, 0)
         yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
     end
+
+    -- restart game using 'q'
+    if love.keyboard.isDown('q') then
+        resetGame()
+    end
 end
 
 function randomSequence(max)
@@ -117,6 +122,8 @@ function gameOver()
 end
 
 function resetGame()
+    love.graphics.print('Resetting game..please wait', 400, 300)
+    love.load()
 end
 
 function pauseGame()
