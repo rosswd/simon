@@ -22,6 +22,9 @@ function love.load()
     intro = 'Simon will play a random sequence and then ask you to repeat it.' .. 
     ' As the game progresses, the sequence will get more difficult. Good Luck!'
     love.window.showMessageBox('Welcome to Simon', intro)
+
+    -- our player
+    player = {score = 0}
 end
 
 -- Update
@@ -112,13 +115,13 @@ end
 
 function updateScore()
     if checkSequence then
-        score = score + 1
-        love.graphics.print("Score: " .. score, 400, 200)
+        player.score = player.score + 1
+        love.graphics.print("Score: " .. player.score, 400, 200)
     end
 end
 
 function gameOver()
-    love.graphics.print("GAME OVER! Your score was: " .. score, 400, 200)
+    love.graphics.print("GAME OVER! Your score was: " .. player.score, 400, 200)
 end
 
 function resetGame()
