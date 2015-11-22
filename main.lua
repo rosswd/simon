@@ -13,10 +13,10 @@ function love.load()
     red, green, blue, yellow = {}, {}, {}, {}
 
     -- sounds for each square
-    redSound = love.audio.newSource('sounds/01.wav', 'static')
-    greenSound = love.audio.newSource('sounds/02.wav', 'static')
-    blueSound = love.audio.newSource('sounds/03.wav', 'static')
-    yellowSound = love.audio.newSource('sounds/04.wav', 'static')
+    red.sound = love.audio.newSource('sounds/01.wav', 'static')
+    green.sound = love.audio.newSource('sounds/02.wav', 'static')
+    blue.sound = love.audio.newSource('sounds/03.wav', 'static')
+    yellow.sound = love.audio.newSource('sounds/04.wav', 'static')
 
     -- instructions
     intro = 'Simon will play a random sequence and then ask you to repeat it.' .. 
@@ -48,19 +48,19 @@ function love.draw()
 
     -- what to do when r, g, b and y keys are pressed
     if love.keyboard.isDown('r') then
-        redSound:play()
+        red.sound:play()
         red.color = love.graphics.setColor(255, 0, 0)
         red.shape = love.graphics.rectangle("fill", x1, y1, w, h)
     elseif love.keyboard.isDown('g') then
-        greenSound:play()
+        green.sound:play()
         green.color = love.graphics.setColor(0, 255, 0)
         green.shape = love.graphics.rectangle("fill", x2, y1, w, h)
     elseif love.keyboard.isDown('b') then
-        blueSound:play()
+        blue.sound:play()
         blue.color = love.graphics.setColor(0, 0, 255)
         blue.shape = love.graphics.rectangle("fill", x1, y2, w, h)
     elseif love.keyboard.isDown('y') then
-        yellowSound:play()
+        yellow.sound:play()
         yellow.color = love.graphics.setColor(255, 255, 0)
         yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
     end
@@ -82,16 +82,16 @@ function playSequence()
         do
             if value == 1 then
                 red.color = love.graphics.setColor(250, 100, 100)
-                redSound:play()
+                red.sound:play()
             elseif value == 2 then
                 green.color = love.graphics.setColor(100, 250, 100)
-                greenSound:play()
+                green.sound:play()
             elseif value == 3 then
                 blue.color = love.graphics.setColor(100, 100, 250)
-                blueSound:play()
+                blue.sound:play()
             elseif value == 4 then
                 yellow.color = love.graphics.setColor(250, 250, 0)
-                yellowSound:play()
+                yellow.sound:play()
             end
     end
 end
