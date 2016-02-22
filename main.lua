@@ -4,6 +4,8 @@ debug=true
 
 -- Setup
 function love.load()
+    paused = false
+
     -- dimensions to draw squares
     x1, x2 = 200, 400
     y1, y2 = 150, 350
@@ -19,7 +21,7 @@ function love.load()
     yellow.sound = love.audio.newSource('sounds/04.wav', 'static')
 
     -- instructions
-    intro = 'Simon will play a random sequence and then ask you to repeat it.' .. 
+    intro = 'Simon will play a random sequence and then ask you to repeat it.' ..
     ' As the game progresses, the sequence will get more difficult. Good Luck!'
     love.window.showMessageBox('Welcome to Simon', intro)
 
@@ -29,19 +31,26 @@ end
 
 -- Update
 function love.update(dt)
-    -- Exit game using 'esc'
-    if love.keyboard.isDown('escape') then
-        love.event.push('quit')
-    end
+    if not paused then
+        -- Exit game using 'esc'
+        if love.keyboard.isDown('escape') then
+            love.event.push('quit')
+        end
 
-    -- restart game using 'q'
-    if love.keyboard.isDown('q') then
-        resetGame()
+         -- restart game using 'q'
+        if love.keyboard.isDown('q') then
+            resetGame()
+        end
     end
 end
 
 -- Render
 function love.draw()
+    if paused then
+        love.graphics.setColor(255, 255, 255)
+        love.graphics.print("GAME PAUSED.", 10, 200)
+    end
+
     red.color = love.graphics.setColor(204, 0, 0)
     red.shape = love.graphics.rectangle("fill", x1, y1, w, h)
 
@@ -71,6 +80,18 @@ function love.draw()
         yellow.sound:play()
         yellow.color = love.graphics.setColor(255, 255, 0)
         yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
+    end
+end
+
+function love.focus(b)
+    if not b then
+        paused = true
+    end
+end
+
+function love.keyPressed(key)
+    if key == "space" then
+        paused = not paused
     end
 end
 
