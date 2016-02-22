@@ -15,10 +15,10 @@ function love.load()
     red, green, blue, yellow = {}, {}, {}, {}
 
     -- sounds for each square
-    red.sound = love.audio.newSource('sounds/01.wav', 'static')
-    green.sound = love.audio.newSource('sounds/02.wav', 'static')
-    blue.sound = love.audio.newSource('sounds/03.wav', 'static')
-    yellow.sound = love.audio.newSource('sounds/04.wav', 'static')
+    red.sound = love.audio.newSource('sounds/red.wav', 'static')
+    green.sound = love.audio.newSource('sounds/green.wav', 'static')
+    blue.sound = love.audio.newSource('sounds/blue.wav', 'static')
+    yellow.sound = love.audio.newSource('sounds/yellow.wav', 'static')
 
     -- instructions
     intro = 'Simon will play a random sequence and then ask you to repeat it.' ..
@@ -80,12 +80,6 @@ function love.draw()
         yellow.sound:play()
         yellow.color = love.graphics.setColor(255, 255, 0)
         yellow.shape = love.graphics.rectangle("fill", x2, y2, w, h)
-    end
-end
-
-function love.focus(b)
-    if not b then
-        paused = true
     end
 end
 
